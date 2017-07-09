@@ -1,5 +1,10 @@
 package net.nsreverse.mundle.data;
 
+import android.content.Context;
+import android.os.Bundle;
+
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import net.nsreverse.mundle.MundleApplication;
 
 import java.io.UnsupportedEncodingException;

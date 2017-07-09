@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "329779540838",
+    "firebase_url": "https://mundle-39dde.firebaseio.com",
+    "project_id": "mundle-39dde",
+    "storage_bucket": "mundle-39dde.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:329779540838:android:086fbdf80e979b96",
+        "android_client_info": {
+          "package_name": "net.nsreverse.mundle"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "329779540838-r5r72vvm1t5aj1nfl0jq9u3dic8nmq4c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9W-PqNCXei9PGI_0m8807fy2l04DWyFU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

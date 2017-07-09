@@ -5,6 +5,7 @@ import android.app.Application;
 import com.parse.Parse;
 import com.parse.ParseACL;
 
+import net.nsreverse.mundle.data.Analytics;
 import net.nsreverse.mundle.data.ServerConfiguration;
 
 /**
@@ -46,5 +47,7 @@ public class MundleApplication extends Application {
         acl.setPublicWriteAccess(true);
 
         ParseACL.setDefaultACL(acl, true);
+
+        Analytics.firebaseLogAppOpen(getApplicationContext());
     }
 }
