@@ -1,7 +1,9 @@
-package net.nsreverse.mundle;
+package net.nsreverse.mundle.ui;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import net.nsreverse.mundle.R;
 
 /**
  * Class MainActivity -> AppCompatActivity -
