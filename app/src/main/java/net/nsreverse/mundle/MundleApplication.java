@@ -19,6 +19,9 @@ import net.nsreverse.mundle.data.ServerConfiguration;
 public class MundleApplication extends Application {
     public static final boolean isLoggingEnabled = true;
 
+    public static boolean startingLogout = false;
+    public static boolean isShowingAuthActivity = false;
+
     /**
      * Overridden Method onCreate -
      *
