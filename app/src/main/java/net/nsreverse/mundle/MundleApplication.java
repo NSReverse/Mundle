@@ -8,6 +8,8 @@ import com.parse.ParseACL;
 import net.nsreverse.mundle.data.Analytics;
 import net.nsreverse.mundle.data.ServerConfiguration;
 
+import timber.log.Timber;
+
 /**
  * MundleApplication -
  *
@@ -22,6 +24,8 @@ public class MundleApplication extends Application {
 
     public static boolean startingLogout = false;
     public static boolean isShowingAuthActivity = false;
+
+    public static String sessionToken;
 
     /**
      * Overridden Method onCreate -

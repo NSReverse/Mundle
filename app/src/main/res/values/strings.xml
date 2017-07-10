@@ -1,6 +1,16 @@
 <resources>
     <string name="app_name">Mundle</string>
 
+    <string name="content_desc_auth_background">Background</string>
+
     <string name="card_view_classrooms">Classrooms</string>
     <string name="card_view_notes">Notes</string>
+
+    <string name="authentication_hint_username">Username</string>
+    <string name="authentication_hint_password">Password</string>
+
+    <string name="authentication_checkbox_teacher">Are you a teacher?</string>
+
+    <string name="authentication_button_label_login">Login</string>
+    <string name="authentication_button_label_register">Register</string>
 </resources>
