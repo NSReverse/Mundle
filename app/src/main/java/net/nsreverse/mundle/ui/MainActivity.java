@@ -50,7 +50,8 @@ public class MainActivity extends AppCompatActivity {
         classroomsCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Show ClassroomsActivity here.
+                Intent intent = new Intent(MainActivity.this, SubscribedClassesActivity.class);
+                startActivity(intent);
             }
         });
 
