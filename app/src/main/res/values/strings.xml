@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Mundle</string>
 
+    <string name="activity_title_subscribed_classes">Subscribed Classes</string>
+
     <string name="content_desc_auth_background">Background</string>
+    <string name="content_desc_next_page">Next page</string>
 
     <string name="card_view_classrooms">Classrooms</string>
     <string name="card_view_notes">Notes</string>
@@ -13,4 +16,7 @@
 
     <string name="authentication_button_label_login">Login</string>
     <string name="authentication_button_label_register">Register</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
