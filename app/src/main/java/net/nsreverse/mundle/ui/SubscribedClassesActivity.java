@@ -25,9 +25,13 @@ import butterknife.ButterKnife;
 import timber.log.Timber;
 
 /**
- * Created by Robert on 7/11/2017.
+ * SubscribedClassesActivity -
+ *
+ * This class lists the subscribed classes of a student or a teacher.
+ *
+ * @author Robert
+ * Created on 7/11/2017.
  */
-
 public class SubscribedClassesActivity extends AppCompatActivity
                                        implements ClassroomsAdapter.Delegate {
 
@@ -65,6 +69,10 @@ public class SubscribedClassesActivity extends AppCompatActivity
         }
 
         if (ParseUser.getCurrentUser().getBoolean("is_teacher")) {
+            if (MundleApplication.isLoggingEnabled) {
+                Timber.d("User is a teacher.");
+            }
+
             ButterKnife.bind(this);
 
             teacherFragment = TeacherSubscribedClassesFragment.newInstance(this);
@@ -73,17 +81,22 @@ public class SubscribedClassesActivity extends AppCompatActivity
                     .add(R.id.frame_layout_fragment, teacherFragment, FRAGMENT_TAG)
                     .commit();
 
+            assert fabCreateClass != null;
             fabCreateClass.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     // TODO: Create a new Classroom.
-                    Toast.makeText(SubscribedClassesActivity.this,
-                            "This toast is a placeholder for creating a new classroom.",
-                            Toast.LENGTH_SHORT).show();
+                    Intent intent =
+                            new Intent(SubscribedClassesActivity.this, CreateClassActivity.class);
+                    startActivityForResult(intent, CREATE_CLASS_REQUEST);
                 }
             });
         }
         else {
+            if (MundleApplication.isLoggingEnabled) {
+                Timber.d("User is a student.");
+            }
+
             setContentView(R.layout.activity_subscribed_classes_student);
             ButterKnife.bind(this);
 
@@ -93,6 +106,7 @@ public class SubscribedClassesActivity extends AppCompatActivity
                     .add(R.id.frame_layout_fragment, studentFragment, FRAGMENT_TAG)
                     .commit();
 
+            assert fabAddClass != null;
             fabAddClass.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

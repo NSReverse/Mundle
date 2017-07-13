@@ -67,7 +67,7 @@ public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.Cl
     }
 
     class ClassroomViewHolder extends RecyclerView.ViewHolder
-            implements View.OnClickListener {
+                              implements View.OnClickListener {
 
 
         TextView classroomIdTextView;
