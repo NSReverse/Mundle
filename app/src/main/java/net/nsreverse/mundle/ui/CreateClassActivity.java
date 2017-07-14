@@ -20,6 +20,14 @@ import net.nsreverse.mundle.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * CreateClassActivity -
+ *
+ * This Activity allows a teacher to create a new class on the server.
+ *
+ * @author Robert
+ * Created on 7/13/2017
+ */
 public class CreateClassActivity extends AppCompatActivity {
 
     @BindView(R.id.edit_text_class_id) EditText idEditText;
@@ -33,6 +41,14 @@ public class CreateClassActivity extends AppCompatActivity {
 
     private Context context;
 
+    /**
+     * onCreate(Bundle) -
+     *
+     * This method is the main entry point for CreateClassActivity.
+     *
+     * @param savedInstanceState A Bundle containing information about
+     *                           previous state information.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +112,14 @@ public class CreateClassActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * onCreateOptionsMenu(Menu) -
+     *
+     * This method inflates a Menu to the ActionBar.
+     *
+     * @param menu A Menu object to inflate to.
+     * @return A boolean representing if the menu was successfully inflated.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_create_class, menu);
@@ -103,6 +127,14 @@ public class CreateClassActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * onOptionsItemSelected(MenuItem) -
+     *
+     * This method handles click events on MenuItem objects in the ActionBar.
+     *
+     * @param item A MenuItem representing the selected item.
+     * @return A boolean representing if the selected item was handled.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_cancel || item.getItemId() == android.R.id.home) {
@@ -114,6 +146,13 @@ public class CreateClassActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * onSaveInstanceState(Bundle) -
+     *
+     * This method handles persisting state information before a configuration change happens.
+     *
+     * @param outState A Bundle to write the saved state.
+     */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
