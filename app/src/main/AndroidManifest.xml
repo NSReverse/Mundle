@@ -21,7 +21,8 @@
         </activity>
         <activity android:name=".ui.AuthenticationActivity" />
         <activity android:name=".ui.SubscribedClassesActivity" />
-        <activity android:name=".ui.CreateClassActivity"></activity>
+        <activity android:name=".ui.CreateClassActivity" />
+        <activity android:name=".ui.SubscribeStudentClassActivity"></activity>
     </application>
 
 </manifest>

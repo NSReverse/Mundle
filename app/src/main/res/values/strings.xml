@@ -3,6 +3,7 @@
 
     <string name="activity_title_subscribed_classes">Subscribed Classes</string>
     <string name="activity_title_create_class">Create Classroom</string>
+    <string name="activity_title_add_class">Add Classroom</string>
 
     <string name="button_submit">Submit</string>
     <string name="button_cancel">Cancel</string>

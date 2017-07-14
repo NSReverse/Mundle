@@ -1,5 +1,6 @@
 package net.nsreverse.mundle.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -46,6 +47,8 @@ public class SubscribedClassesActivity extends AppCompatActivity
     private TeacherSubscribedClassesFragment teacherFragment;
     private StudentSubscribedClassesFragment studentFragment;
 
+    private Context context;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +56,8 @@ public class SubscribedClassesActivity extends AppCompatActivity
         assert getSupportActionBar() != null;
         getSupportActionBar().setTitle(getString(R.string.activity_title_subscribed_classes));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        context = this;
 
         ButterKnife.bind(this);
         Timber.plant(new Timber.DebugTree());
@@ -85,9 +90,8 @@ public class SubscribedClassesActivity extends AppCompatActivity
             fabCreateClass.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    // TODO: Create a new Classroom.
                     Intent intent =
-                            new Intent(SubscribedClassesActivity.this, CreateClassActivity.class);
+                            new Intent(context, CreateClassActivity.class);
                     startActivityForResult(intent, CREATE_CLASS_REQUEST);
                 }
             });
@@ -110,9 +114,8 @@ public class SubscribedClassesActivity extends AppCompatActivity
             fabAddClass.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Toast.makeText(SubscribedClassesActivity.this,
-                            "This toast is a placeholder for adding a new classroom.",
-                            Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(context, SubscribeStudentClassActivity.class);
+                    startActivityForResult(intent, ADD_CLASS_REQUEST);
                 }
             });
         }
