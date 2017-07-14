@@ -81,6 +81,19 @@ public class CreateClassActivity extends AppCompatActivity {
                 }
             }
         });
+
+        if (savedInstanceState != null) {
+            String classId = savedInstanceState.getString(KEY_CLASS_ID);
+            String className = savedInstanceState.getString(KEY_CLASS_NAME);
+
+            if (classId != null && !classId.isEmpty()) {
+                idEditText.setText(classId);
+            }
+
+            if (className != null && !className.isEmpty()) {
+                nameEditText.setText(className);
+            }
+        }
     }
 
     @Override
@@ -99,5 +112,13 @@ public class CreateClassActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString(KEY_CLASS_ID, idEditText.getText().toString());
+        outState.putString(KEY_CLASS_NAME, nameEditText.getText().toString());
     }
 }
