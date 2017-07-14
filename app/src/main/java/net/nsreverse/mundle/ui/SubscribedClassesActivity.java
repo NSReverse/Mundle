@@ -147,7 +147,9 @@ public class SubscribedClassesActivity extends AppCompatActivity
 
     @Override
     public void adapterItemClicked(int position, ParseObject selectedObject) {
-        // TODO: Handle selection of a classroom.
+        Intent intent = new Intent(context, SelectedClassroomActivity.class);
+        intent.putExtra(SelectedClassroomActivity.KEY_CLASSROOM_ID, selectedObject.getObjectId());
+        startActivity(intent);
     }
 
     @Override

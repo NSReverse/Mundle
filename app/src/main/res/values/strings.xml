@@ -13,6 +13,10 @@
 
     <string name="card_view_classrooms">Classrooms</string>
     <string name="card_view_notes">Notes</string>
+    <string name="card_view_feed">Feed</string>
+    <string name="card_view_assignments">Assignments</string>
+    <string name="card_view_projects">Projects</string>
+    <string name="card_view_members">Members</string>
 
     <string name="authentication_hint_username">Username</string>
     <string name="authentication_hint_password">Password</string>
