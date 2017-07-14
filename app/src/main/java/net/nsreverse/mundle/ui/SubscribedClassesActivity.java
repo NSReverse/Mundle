@@ -49,6 +49,14 @@ public class SubscribedClassesActivity extends AppCompatActivity
 
     private Context context;
 
+    /**
+     * onCreate(Bundle) -
+     *
+     * This method handles the setting up of this Activity.
+     *
+     * @param savedInstanceState A Bundle representing previous save state information
+     *                           before a configuration change. (if available)
+     */
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,6 +129,16 @@ public class SubscribedClassesActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * onActivityResult(int, int, Intent) -
+     *
+     * This method handles the result of Activities where a request is made prior to
+     * launch.
+     *
+     * @param requestCode An int constant representing the request being made.
+     * @param resultCode An int constant representing the result of the Activity's task.
+     * @param data An Intent containing optional data passed from the launched Activity.
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == CREATE_CLASS_REQUEST) {
@@ -135,6 +153,14 @@ public class SubscribedClassesActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * onOptionsItemSelected(MenuItem) -
+     *
+     * This method handles MenuItem clicks in the ActionBar.
+     *
+     * @param item A MenuItem representing the clicked item.
+     * @return A boolean representing if the action was handled.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -145,6 +171,13 @@ public class SubscribedClassesActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * adapterItemClicked(int, ParseObject) -
+     *
+     * @param position An int representing the position in the RecyclerView that was
+     *                 selected.
+     * @param selectedObject A ParseObject representing the selected data.
+     */
     @Override
     public void adapterItemClicked(int position, ParseObject selectedObject) {
         Intent intent = new Intent(context, SelectedClassroomActivity.class);
@@ -152,6 +185,11 @@ public class SubscribedClassesActivity extends AppCompatActivity
         startActivity(intent);
     }
 
+    /**
+     * onResume() -
+     *
+     * Overridden lifecycle method when activity is brought to foreground.
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -172,6 +210,15 @@ public class SubscribedClassesActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * onSaveInstanceState(Bundle) -
+     *
+     * This method handles persisting select data and preparing for a configuration
+     * change.
+     *
+     * @param outState A Bundle to pass to the Activity for restoring a saved
+     *                 state.
+     */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         // Fragment must be removed before supercall to onSaveInstanceState.
