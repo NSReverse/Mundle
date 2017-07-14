@@ -141,14 +141,9 @@ public class SubscribedClassesActivity extends AppCompatActivity
      */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CREATE_CLASS_REQUEST) {
+        if (requestCode == CREATE_CLASS_REQUEST || requestCode == ADD_CLASS_REQUEST) {
             if (resultCode == RESULT_OK) {
                 teacherFragment.setDataSource();
-            }
-        }
-        else if (requestCode == ADD_CLASS_REQUEST) {
-            if (resultCode == RESULT_OK) {
-                studentFragment.setDataSource();
             }
         }
     }
