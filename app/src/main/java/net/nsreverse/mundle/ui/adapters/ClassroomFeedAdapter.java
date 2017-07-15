@@ -13,6 +13,9 @@ import net.nsreverse.mundle.R;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 /**
  * ClassroomFeedAdapter -
  *
@@ -125,10 +128,10 @@ public class ClassroomFeedAdapter
     class ClassroomFeedViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
-        TextView feedTitleTextView;
-        TextView feedAuthorTextView;
-        TextView feedContentTextView;
-        TextView feedDateTextView;
+        @BindView(R.id.text_view_feed_title) TextView feedTitleTextView;
+        @BindView(R.id.text_view_feed_author) TextView feedAuthorTextView;
+        @BindView(R.id.text_view_feed_content) TextView feedContentTextView;
+        @BindView(R.id.text_view_feed_date) TextView feedDateTextView;
 
         /**
          * Constructor ClassroomFeedViewHolder(View) -
@@ -140,10 +143,7 @@ public class ClassroomFeedAdapter
         ClassroomFeedViewHolder(View itemView) {
             super(itemView);
 
-            feedTitleTextView = itemView.findViewById(R.id.text_view_feed_title);
-            feedAuthorTextView = itemView.findViewById(R.id.text_view_feed_author);
-            feedContentTextView = itemView.findViewById(R.id.text_view_feed_content);
-            feedDateTextView = itemView.findViewById(R.id.text_view_feed_date);
+            ButterKnife.bind(this, itemView);
 
             itemView.setOnClickListener(this);
         }
