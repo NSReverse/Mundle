@@ -7,6 +7,7 @@
 
     <string name="button_submit">Submit</string>
     <string name="button_cancel">Cancel</string>
+    <string name="button_post">Post</string>
 
     <string name="content_desc_auth_background">Background</string>
     <string name="content_desc_next_page">Next page</string>
@@ -28,4 +29,6 @@
 
     <string name="edit_text_hint_create_class_id">Classroom ID (e.g. CSCI 2000)</string>
     <string name="edit_text_hint_create_class_name">Classroom Name (e.g. Data Structures)</string>
+    <string name="edit_text_hint_create_feed_title">Post Title</string>
+    <string name="edit_text_hint_create_feed_content">Post Content</string>
 </resources>

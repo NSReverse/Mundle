@@ -23,7 +23,9 @@
         <activity android:name=".ui.SubscribedClassesActivity" />
         <activity android:name=".ui.CreateClassActivity" />
         <activity android:name=".ui.SubscribeStudentClassActivity" />
-        <activity android:name=".ui.SelectedClassroomActivity"></activity>
+        <activity android:name=".ui.SelectedClassroomActivity" />
+        <activity android:name=".ui.ClassroomFeedActivity" />
+        <activity android:name=".ui.CreateFeedPostActivity"></activity>
     </application>
 
 </manifest>

@@ -1,6 +1,7 @@
 package net.nsreverse.mundle.ui;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -113,7 +114,12 @@ public class SelectedClassroomActivity extends AppCompatActivity {
          */
 
         switch (selectedCard) {
-            case FEED: showToast("Showing Feed"); break;
+            case FEED: showToast("Showing Feed");
+                Intent intent = new Intent(context, ClassroomFeedActivity.class);
+                intent.putExtra(ClassroomFeedActivity.KEY_CLASS_ID, classId);
+                intent.putExtra(ClassroomFeedActivity.KEY_CLASS_TITLE, currentClassTitle);
+                startActivity(intent);
+                break;
             case ASSIGNMENTS: showToast("Showing Assignments"); break;
             case PROJECTS: showToast("Showing Projects"); break;
             case MEMBERS: showToast("Showing Members"); break;
