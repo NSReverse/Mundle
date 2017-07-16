@@ -34,6 +34,8 @@ public class CreateAssignmentActivity extends AppCompatActivity {
 
     public static final String KEY_CLASS_ID = "class_id";
     public static final String KEY_CLASS_NAME = "class_name";
+    private static final String KEY_ASSIGN_TITLE = "assign_title";
+    private static final String KEY_ASSIGN_CONTENT = "assign_content";
 
     @BindView(R.id.edit_text_assign_title) EditText titleEditText;
     @BindView(R.id.edit_text_assign_content) EditText contentEditText;
@@ -57,6 +59,11 @@ public class CreateAssignmentActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         ButterKnife.bind(this);
+
+        if (savedInstanceState != null) {
+            titleEditText.setText(savedInstanceState.getString(KEY_ASSIGN_TITLE));
+            contentEditText.setText(savedInstanceState.getString(KEY_ASSIGN_CONTENT));
+        }
 
         setupComponents();
     }
@@ -121,5 +128,20 @@ public class CreateAssignmentActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /**
+     * onSaveInstanceState(Bundle) -
+     *
+     * This method writes save state to a Bundle before a configuration change occurs.
+     *
+     * @param outState A Bundle to write save state information to.
+     */
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putString(KEY_ASSIGN_TITLE, titleEditText.getText().toString());
+        outState.putString(KEY_ASSIGN_CONTENT, contentEditText.getText().toString());
     }
 }
