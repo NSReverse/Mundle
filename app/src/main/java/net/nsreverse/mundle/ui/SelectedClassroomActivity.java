@@ -114,15 +114,26 @@ public class SelectedClassroomActivity extends AppCompatActivity {
          */
 
         switch (selectedCard) {
-            case FEED: showToast("Showing Feed");
+            case FEED: {
+                showToast("Showing Feed");
                 Intent intent = new Intent(context, ClassroomFeedActivity.class);
                 intent.putExtra(ClassroomFeedActivity.KEY_CLASS_ID, classId);
                 intent.putExtra(ClassroomFeedActivity.KEY_CLASS_TITLE, currentClassTitle);
                 startActivity(intent);
-                break;
-            case ASSIGNMENTS: showToast("Showing Assignments"); break;
-            case PROJECTS: showToast("Showing Projects"); break;
-            case MEMBERS: showToast("Showing Members"); break;
+            } break;
+            case ASSIGNMENTS: {
+                showToast("Showing Assignments");
+                Intent intent = new Intent(context, ClassroomAssignmentsActivity.class);
+                intent.putExtra(ClassroomAssignmentsActivity.KEY_CLASS_ID, classId);
+                intent.putExtra(ClassroomAssignmentsActivity.KEY_CLASS_TITLE, currentClassTitle);
+                startActivity(intent);
+            } break;
+            case PROJECTS: {
+                showToast("Showing Projects");
+            } break;
+            case MEMBERS: {
+                showToast("Showing Members");
+            } break;
             default: break;
         }
     }

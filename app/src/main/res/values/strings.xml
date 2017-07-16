@@ -31,4 +31,7 @@
     <string name="edit_text_hint_create_class_name">Classroom Name (e.g. Data Structures)</string>
     <string name="edit_text_hint_create_feed_title">Post Title</string>
     <string name="edit_text_hint_create_feed_content">Post Content</string>
+
+    <string name="text_view_assignment_open">(Opened)</string>
+    <string name="text_view_assignment_closed">(Closed)</string>
 </resources>
