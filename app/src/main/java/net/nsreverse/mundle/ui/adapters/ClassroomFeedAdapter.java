@@ -83,13 +83,13 @@ public class ClassroomFeedAdapter
     }
 
     /**
-     * setDataSource(Context, List [-> ParseObject]) -
+     * setDataSource(Context, List/ParseObject) -
      *
      * This method sets the data source and the delegate of this adapter. The adapter is notified
      * of the change.
      *
-     * @param context The Context [-> Delegate] for handling callbacks.
-     * @param dataSource A List [-> ParseObject] representing the new data source.
+     * @param context The Context/Delegate for handling callbacks.
+     * @param dataSource A List/ParseObject representing the new data source.
      */
     public void setDataSource(Context context, List<ParseObject> dataSource) {
         if (context instanceof Delegate) {
@@ -106,7 +106,7 @@ public class ClassroomFeedAdapter
      *
      * This Interface defines how callbacks should be handled.
      */
-    public interface Delegate {
+    interface Delegate {
 
         /**
          * adapterItemClicked(int, ParseObject) -
