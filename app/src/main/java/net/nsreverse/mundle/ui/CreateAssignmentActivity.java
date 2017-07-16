@@ -22,6 +22,14 @@ import net.nsreverse.mundle.R;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * CreateAssignmentActivity -
+ *
+ * This activity allows a teacher account to create a new assignment.
+ *
+ * @author Robert
+ * Created on 7/16/2017
+ */
 public class CreateAssignmentActivity extends AppCompatActivity {
 
     public static final String KEY_CLASS_ID = "class_id";
@@ -32,6 +40,14 @@ public class CreateAssignmentActivity extends AppCompatActivity {
     @BindView(R.id.date_picker_due) DatePicker dueDatePicker;
     @BindView(R.id.button_save_assign_post) Button saveAssignButton;
 
+    /**
+     * onCreate(Bundle) -
+     *
+     * This method is the main entry point for setting up this Activity.
+     *
+     * @param savedInstanceState A Bundle containing save state information before a configuration
+     *                           change happens.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +61,11 @@ public class CreateAssignmentActivity extends AppCompatActivity {
         setupComponents();
     }
 
+    /**
+     * setupComponents() -
+     *
+     * This method provides post-create setup for this activity.
+     */
     private void setupComponents() {
         saveAssignButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +104,14 @@ public class CreateAssignmentActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * onOptionsItemSelected(MenuItem) -
+     *
+     * This method handles a MenuItem click in the ActionBar.
+     *
+     * @param item A MenuItem representing the selected item.
+     * @return A boolean representing if the action was handled.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
