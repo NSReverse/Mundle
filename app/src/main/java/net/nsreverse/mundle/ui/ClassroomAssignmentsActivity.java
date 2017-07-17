@@ -28,12 +28,14 @@ public class ClassroomAssignmentsActivity extends AppCompatActivity {
 
     public static final String KEY_CLASS_ID = "class_id";
     public static final String KEY_CLASS_TITLE = "class_title";
+    public static final String KEY_IS_PROJECTS = "is_projects";
     private static final int ADD_ASSIGNMENT_REQUEST = 101;
 
     @BindView(R.id.recycler_view_classroom_assign_list) RecyclerView assignmentRecyclerView;
     @BindView(R.id.fab_new_assignment_post) FloatingActionButton fabCreateAssignment;
 
     private Context context;
+    private boolean isProjects = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,10 @@ public class ClassroomAssignmentsActivity extends AppCompatActivity {
         context = this;
 
         ButterKnife.bind(this);
+
+        if (getIntent().hasExtra(KEY_IS_PROJECTS)) {
+            isProjects = true;
+        }
 
         setupComponents();
     }
@@ -62,6 +68,11 @@ public class ClassroomAssignmentsActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(context, CreateAssignmentActivity.class);
                 intent.putExtra(CreateAssignmentActivity.KEY_CLASS_ID, classId);
+
+                if (isProjects) {
+                    intent.putExtra(CreateAssignmentActivity.KEY_IS_PROJECTS, true);
+                }
+
                 startActivityForResult(intent, ADD_ASSIGNMENT_REQUEST);
             }
         });
@@ -70,7 +81,13 @@ public class ClassroomAssignmentsActivity extends AppCompatActivity {
     }
 
     private void reloadDataSource() {
-        ParseQuery<ParseObject> query = new ParseQuery<>("Assignments");
+        String parseClass = "Assignments";
+
+        if (isProjects) {
+            parseClass = "Projects";
+        }
+
+        ParseQuery<ParseObject> query = new ParseQuery<>(parseClass);
         query.whereEqualTo("classroom_id", getIntent().getStringExtra(KEY_CLASS_ID));
         query.addDescendingOrder("due_date");
         query.findInBackground(new FindCallback<ParseObject>() {

@@ -130,6 +130,11 @@ public class SelectedClassroomActivity extends AppCompatActivity {
             } break;
             case PROJECTS: {
                 showToast("Showing Projects");
+                Intent intent = new Intent(context, ClassroomAssignmentsActivity.class);
+                intent.putExtra(ClassroomAssignmentsActivity.KEY_CLASS_ID, classId);
+                intent.putExtra(ClassroomAssignmentsActivity.KEY_CLASS_TITLE, currentClassTitle);
+                intent.putExtra(ClassroomAssignmentsActivity.KEY_IS_PROJECTS, true);
+                startActivity(intent);
             } break;
             case MEMBERS: {
                 showToast("Showing Members");

@@ -34,6 +34,7 @@ public class CreateAssignmentActivity extends AppCompatActivity {
 
     public static final String KEY_CLASS_ID = "class_id";
     public static final String KEY_CLASS_NAME = "class_name";
+    public static final String KEY_IS_PROJECTS = "is_project";
     private static final String KEY_ASSIGN_TITLE = "assign_title";
     private static final String KEY_ASSIGN_CONTENT = "assign_content";
 
@@ -87,7 +88,13 @@ public class CreateAssignmentActivity extends AppCompatActivity {
                 Calendar calendar = new GregorianCalendar(year, month, day);
                 Date dueDate = calendar.getTime();
 
-                ParseObject newObject = new ParseObject("Assignments");
+                String parseClass = "Assignments";
+
+                if (getIntent().hasExtra(KEY_IS_PROJECTS)) {
+                    parseClass = "Projects";
+                }
+
+                ParseObject newObject = new ParseObject(parseClass);
                 newObject.put("classroom_id", getIntent().getStringExtra(KEY_CLASS_ID));
                 newObject.put("author", ParseUser.getCurrentUser().getUsername());
                 newObject.put("title", title);
