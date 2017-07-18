@@ -24,6 +24,15 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+/**
+ * ClassroomAssignmentsActivity -
+ *
+ * This class allows a teacher or a student to view assignments or projects assigned to a
+ * selected classroom.
+ *
+ * @author Robert
+ * Created on 7/16/2017
+ */
 public class ClassroomAssignmentsActivity extends AppCompatActivity {
 
     public static final String KEY_CLASS_ID = "class_id";
@@ -37,6 +46,14 @@ public class ClassroomAssignmentsActivity extends AppCompatActivity {
     private Context context;
     private boolean isProjects = false;
 
+    /**
+     * onCreate(Bundle) -
+     *
+     * This method is the main entry point for this Activity.
+     *
+     * @param savedInstanceState A Bundle containing save state information pre-configuration
+     *                           state change. (if applicable)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +73,11 @@ public class ClassroomAssignmentsActivity extends AppCompatActivity {
         setupComponents();
     }
 
+    /**
+     * setupComponents() -
+     *
+     * This method performs post-onCreate setup.
+     */
     private void setupComponents() {
         if (!ParseUser.getCurrentUser().getBoolean("is_teacher")) {
             fabCreateAssignment.setVisibility(View.GONE);
@@ -80,6 +102,11 @@ public class ClassroomAssignmentsActivity extends AppCompatActivity {
         reloadDataSource();
     }
 
+    /**
+     * reloadDataSource() -
+     *
+     * This method handles reloading of the data in this Activity's RecyclerView.
+     */
     private void reloadDataSource() {
         String parseClass = "Assignments";
 
@@ -102,6 +129,14 @@ public class ClassroomAssignmentsActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * onOptionsItemSelected(MenuItem) -
+     *
+     * This method handles clicking of items in this Activity's ActionBar.
+     *
+     * @param item A MenuItem representing the selected item.
+     * @return A boolean representing if the action was handled.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
@@ -112,6 +147,17 @@ public class ClassroomAssignmentsActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * onActivityResult(int, int, Intent) -
+     *
+     * This method handles when this Activity makes a request to another Activity to perform a
+     * task and handles that result.
+     *
+     * @param requestCode An int representing the nature of the request to the called Activity.
+     * @param resultCode An int representing the result of the task performed in the called
+     *                   Activity.
+     * @param data An optional Intent containing post-task data. Unused here.
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == ADD_ASSIGNMENT_REQUEST && resultCode == RESULT_OK) {
