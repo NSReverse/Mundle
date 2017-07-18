@@ -25,6 +25,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import timber.log.Timber;
 
+/**
+ * AuthenticationActivity -
+ *
+ * This Activity provides logic and UI for authentication with the Mundle server.
+ *
+ * @author Robert
+ * Created on 7/10/2017
+ */
 public class AuthenticationActivity extends AppCompatActivity {
 
     private Context currentContext;
@@ -39,6 +47,14 @@ public class AuthenticationActivity extends AppCompatActivity {
     @BindView(R.id.button_register) Button registerButton;
     @BindView(R.id.checkbox_teacher) CheckBox teacherCheckbox;
 
+    /**
+     * onCreate(Bundle) -
+     *
+     * This method is the main entry point for this Activity.
+     *
+     * @param savedInstanceState A Bundle containing save state data before a configuration
+     *                           change occurred. (if applicable)
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +74,11 @@ public class AuthenticationActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * setupComponents() -
+     *
+     * This method performs post-onCreate setup.
+     */
     private void setupComponents() {
         teacherCheckbox.setChecked(UserDefaults.getDefaultTeacher(this));
         usernameEditText.setText(UserDefaults.getDefaultUsername(this));
@@ -151,12 +172,24 @@ public class AuthenticationActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * onBackPressed() -
+     *
+     * This method handles the back button behavior for the app.
+     */
     @Override
     public void onBackPressed() {
         setResult(RESULT_CANCELED);
         finish();
     }
 
+    /**
+     * onSaveInstanceState(Bundle) -
+     *
+     * This method handles saved configuration state.
+     *
+     * @param outState A Bundle to write save state information to.
+     */
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
