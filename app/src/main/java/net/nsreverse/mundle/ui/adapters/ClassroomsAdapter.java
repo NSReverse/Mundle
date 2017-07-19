@@ -12,13 +12,14 @@ import com.parse.ParseObject;
 import net.nsreverse.mundle.R;
 
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by Robert on 7/11/2017.
  */
-
 public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.ClassroomViewHolder> {
 
+    private Context context;
     private Delegate delegate;
     private List<ParseObject> dataSource;
 
@@ -34,9 +35,14 @@ public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.Cl
     public void onBindViewHolder(ClassroomViewHolder holder, int position) {
         ParseObject currentObject = dataSource.get(position);
 
+        String instructorText = String.format(Locale.getDefault(), "%s%s",
+                context.getString(R.string.text_view_instructor_label),
+                currentObject.getString("instructor_name"));
+
         holder.classroomIdTextView.setText(currentObject.getString("classroom_name"));
         holder.classroomNameTextView.setText(currentObject.getString("classroom_short_desc"));
-        holder.classroomInstructorTextView.setText("Instructor: " + currentObject.getString("instructor_name"));
+        holder.classroomInstructorTextView
+                .setText(instructorText);
     }
 
     @Override
@@ -53,6 +59,7 @@ public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.Cl
             delegate = (Delegate)context;
         }
 
+        this.context = context;
         this.dataSource = dataSource;
 
         notifyDataSetChanged();
