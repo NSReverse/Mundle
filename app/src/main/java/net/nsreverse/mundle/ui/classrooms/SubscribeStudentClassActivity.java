@@ -97,9 +97,35 @@ public class SubscribeStudentClassActivity extends AppCompatActivity
                         });
                     }
                     else {
-                        Toast.makeText(context,
-                                "Unable to subscribe to classroom: You are already in this class!",
-                                Toast.LENGTH_SHORT).show();
+                        boolean exists = false;
+
+                        for (ParseObject currentClassroom : objects) {
+                            if (currentClassroom.getString("subscriber_id")
+                                    .equals(ParseUser.getCurrentUser().getObjectId())) {
+
+                                exists = true;
+                            }
+                        }
+
+                        if (!exists) {
+                            ParseObject newObject = new ParseObject("ClassroomSubscriptions");
+                            newObject.put("classroom_id", selectedObject.getObjectId());
+                            newObject.put("subscriber_id", ParseUser.getCurrentUser().getObjectId());
+                            newObject.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    setResult(RESULT_OK);
+                                    finish();
+                                }
+                            });
+                        }
+                        else {
+                            Toast.makeText(context,
+                                    "Unable to subscribe to classroom: You are already in this class!",
+                                    Toast.LENGTH_SHORT).show();
+                            setResult(RESULT_CANCELED);
+                            finish();
+                        }
                     }
                 }
                 else {
