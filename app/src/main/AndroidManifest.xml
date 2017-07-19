@@ -27,7 +27,8 @@
         <activity android:name=".ui.classrooms.ClassroomFeedActivity" />
         <activity android:name=".ui.classrooms.CreateFeedPostActivity" />
         <activity android:name=".ui.classrooms.ClassroomAssignmentsActivity" />
-        <activity android:name=".ui.classrooms.CreateAssignmentActivity"></activity>
+        <activity android:name=".ui.classrooms.CreateAssignmentActivity" />
+        <activity android:name=".ui.classrooms.ClassroomMembersActivity"></activity>
     </application>
 
 </manifest>

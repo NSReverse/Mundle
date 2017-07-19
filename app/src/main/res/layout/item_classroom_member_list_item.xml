@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_item_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_default">
+
+        <TextView
+            tools:text="Robert Brown"
+            android:id="@+id/text_view_classroom_member_name"
+            android:layout_marginTop="@dimen/other_default_half"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            tools:text="admin (Instructor)"
+            android:id="@+id/text_view_classroom_member_username"
+            android:layout_below="@id/text_view_classroom_member_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_below="@id/relative_layout_item_one"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/one"
+        android:background="@color/colorAccent"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginLeft="@dimen/margin_default"/>
+
+</RelativeLayout>

@@ -34,4 +34,6 @@
 
     <string name="text_view_assignment_open">(Opened)</string>
     <string name="text_view_assignment_closed">(Closed)</string>
+    <string name="text_view_name_unset">[No Name Set]</string>
+    <string name="text_view_instructor_label">Instructor: </string>
 </resources>

@@ -15,6 +15,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import net.nsreverse.mundle.R;
+import net.nsreverse.mundle.ui.adapters.ClassroomMembersAdapter;
 
 import java.util.List;
 
@@ -138,6 +139,12 @@ public class SelectedClassroomActivity extends AppCompatActivity {
             } break;
             case MEMBERS: {
                 showToast("Showing Members");
+                Intent intent = new Intent(context, ClassroomMembersActivity.class);
+                intent.putExtra(ClassroomMembersActivity.KEY_CLASS_ID, classId);
+                intent.putExtra(ClassroomMembersActivity.KEY_CLASS_TITLE, currentClassTitle);
+                intent.putExtra(ClassroomMembersActivity.KEY_OBJECT_ID,
+                        currentClassroom.getObjectId());
+                startActivity(intent);
             } break;
             default: break;
         }
