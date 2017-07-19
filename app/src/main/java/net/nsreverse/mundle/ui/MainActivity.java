@@ -12,6 +12,7 @@ import com.parse.ParseUser;
 
 import net.nsreverse.mundle.MundleApplication;
 import net.nsreverse.mundle.R;
+import net.nsreverse.mundle.ui.classrooms.SubscribedClassesActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

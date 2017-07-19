@@ -1,4 +1,4 @@
-package net.nsreverse.mundle.ui;
+package net.nsreverse.mundle.ui.classrooms;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

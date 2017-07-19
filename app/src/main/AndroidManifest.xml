@@ -20,14 +20,14 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.AuthenticationActivity" />
-        <activity android:name=".ui.SubscribedClassesActivity" />
-        <activity android:name=".ui.CreateClassActivity" />
-        <activity android:name=".ui.SubscribeStudentClassActivity" />
-        <activity android:name=".ui.SelectedClassroomActivity" />
-        <activity android:name=".ui.ClassroomFeedActivity" />
-        <activity android:name=".ui.CreateFeedPostActivity" />
-        <activity android:name=".ui.ClassroomAssignmentsActivity" />
-        <activity android:name=".ui.CreateAssignmentActivity"></activity>
+        <activity android:name=".ui.classrooms.SubscribedClassesActivity" />
+        <activity android:name=".ui.classrooms.CreateClassActivity" />
+        <activity android:name=".ui.classrooms.SubscribeStudentClassActivity" />
+        <activity android:name=".ui.classrooms.SelectedClassroomActivity" />
+        <activity android:name=".ui.classrooms.ClassroomFeedActivity" />
+        <activity android:name=".ui.classrooms.CreateFeedPostActivity" />
+        <activity android:name=".ui.classrooms.ClassroomAssignmentsActivity" />
+        <activity android:name=".ui.classrooms.CreateAssignmentActivity"></activity>
     </application>
 
 </manifest>

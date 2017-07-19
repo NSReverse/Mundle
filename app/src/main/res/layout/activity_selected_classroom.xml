@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="net.nsreverse.mundle.ui.SelectedClassroomActivity">
+    tools:context="net.nsreverse.mundle.ui.classrooms.SelectedClassroomActivity">
 
     <LinearLayout
         android:orientation="vertical"
