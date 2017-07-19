@@ -1,5 +1,9 @@
 package net.nsreverse.mundle.data;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+
 import net.nsreverse.mundle.MundleApplication;
 
 import java.io.UnsupportedEncodingException;
@@ -17,6 +21,22 @@ import timber.log.Timber;
  * Created on 7/8/2017.
  */
 public class ServerConfiguration {
+    /**
+     * testConnectivity(Context) -
+     *
+     * This method tests Internet connectivity.
+     *
+     * @param context A Context to get the Connectivity Service.
+     * @return A boolean representing if the test was successful.
+     */
+    public static boolean testConnectivity(Context context) {
+        ConnectivityManager manager =
+                (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = manager.getActiveNetworkInfo();
+
+        return networkInfo != null &&
+                networkInfo.isConnectedOrConnecting();
+    }
 
     /**
      * Class ServerConfiguration.Parse -
