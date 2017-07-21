@@ -82,6 +82,8 @@ public class ClassroomFeedActivity extends AppCompatActivity {
                 Intent intent = new Intent(context, CreateFeedPostActivity.class);
                 intent.putExtra(CreateFeedPostActivity.KEY_CLASS_ID,
                         getIntent().getStringExtra(KEY_CLASS_ID));
+                intent.putExtra(CreateFeedPostActivity.KEY_CLASS_NAME,
+                        getIntent().getStringExtra(KEY_CLASS_TITLE));
                 startActivityForResult(intent, ADD_FEED_REQUEST);
             }
         });

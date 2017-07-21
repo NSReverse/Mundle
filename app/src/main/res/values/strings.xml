@@ -36,4 +36,8 @@
     <string name="text_view_assignment_closed">(Closed)</string>
     <string name="text_view_name_unset">[No Name Set]</string>
     <string name="text_view_instructor_label">Instructor: </string>
+
+    <string name="notify_new_assign">A new assignment has been posted in</string>
+    <string name="notify_new_project">A new project has been posted in</string>
+    <string name="notify_new_feed_post">A new feed message has been posted in</string>
 </resources>

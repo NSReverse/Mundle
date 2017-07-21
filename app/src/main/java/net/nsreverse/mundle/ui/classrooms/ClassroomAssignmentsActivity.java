@@ -90,6 +90,8 @@ public class ClassroomAssignmentsActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(context, CreateAssignmentActivity.class);
                 intent.putExtra(CreateAssignmentActivity.KEY_CLASS_ID, classId);
+                intent.putExtra(CreateAssignmentActivity.KEY_CLASS_NAME,
+                        getIntent().getStringExtra(KEY_CLASS_TITLE));
 
                 if (isProjects) {
                     intent.putExtra(CreateAssignmentActivity.KEY_IS_PROJECTS, true);
