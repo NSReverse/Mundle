@@ -15,7 +15,6 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import net.nsreverse.mundle.R;
-import net.nsreverse.mundle.ui.adapters.ClassroomMembersAdapter;
 
 import java.util.List;
 
@@ -68,7 +67,8 @@ public class SelectedClassroomActivity extends AppCompatActivity {
                 }
                 else {
                     Toast.makeText(context,
-                            "Unable to open classroom: " + e.getMessage(),
+                            context.getString(R.string.content_failed_open_classroom) +
+                                    " " + e.getMessage(),
                             Toast.LENGTH_SHORT).show();
                 }
             }
@@ -110,27 +110,20 @@ public class SelectedClassroomActivity extends AppCompatActivity {
     private void handleSelectedCard(SelectedCard selectedCard) {
         String classId = getIntent().getStringExtra(KEY_CLASSROOM_ID);
 
-        /* intent.putString("KEY_CLASS_ID", classId);
-         * intent.putString("KEY_CLASS_TITLE", currentClassTitle);
-         */
-
         switch (selectedCard) {
             case FEED: {
-                showToast("Showing Feed");
                 Intent intent = new Intent(context, ClassroomFeedActivity.class);
                 intent.putExtra(ClassroomFeedActivity.KEY_CLASS_ID, classId);
                 intent.putExtra(ClassroomFeedActivity.KEY_CLASS_TITLE, currentClassTitle);
                 startActivity(intent);
             } break;
             case ASSIGNMENTS: {
-                showToast("Showing Assignments");
                 Intent intent = new Intent(context, ClassroomAssignmentsActivity.class);
                 intent.putExtra(ClassroomAssignmentsActivity.KEY_CLASS_ID, classId);
                 intent.putExtra(ClassroomAssignmentsActivity.KEY_CLASS_TITLE, currentClassTitle);
                 startActivity(intent);
             } break;
             case PROJECTS: {
-                showToast("Showing Projects");
                 Intent intent = new Intent(context, ClassroomAssignmentsActivity.class);
                 intent.putExtra(ClassroomAssignmentsActivity.KEY_CLASS_ID, classId);
                 intent.putExtra(ClassroomAssignmentsActivity.KEY_CLASS_TITLE, currentClassTitle);
@@ -138,7 +131,6 @@ public class SelectedClassroomActivity extends AppCompatActivity {
                 startActivity(intent);
             } break;
             case MEMBERS: {
-                showToast("Showing Members");
                 Intent intent = new Intent(context, ClassroomMembersActivity.class);
                 intent.putExtra(ClassroomMembersActivity.KEY_CLASS_ID, classId);
                 intent.putExtra(ClassroomMembersActivity.KEY_CLASS_TITLE, currentClassTitle);

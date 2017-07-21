@@ -6,6 +6,7 @@
     <string name="activity_title_add_class">Add Classroom</string>
     <string name="activity_edit_note">Edit Note</string>
     <string name="activity_new_note">New Note</string>
+    <string name="activity_my_notes">My Notes</string>
 
     <string name="button_submit">Submit</string>
     <string name="button_cancel">Cancel</string>
@@ -39,6 +40,8 @@
     <string name="edit_text_hint_username">Username</string>
     <string name="edit_text_hint_note_title">Note Title</string>
     <string name="edit_text_hint_note_content">Note Content</string>
+    <string name="edit_text_hint_assign_title">Assignment Title</string>
+    <string name="edit_text_hint_assign_content">Assignment Content</string>
 
     <string name="text_view_assignment_open">(Opened)</string>
     <string name="text_view_assignment_closed">(Closed)</string>
@@ -58,8 +61,17 @@
     <string name="label_widget_text_view_classes_subbed">Classes Subscribed: </string>
     <string name="label_widget_text_view_notes">Notes:</string>
 
+    <string name="menu_item_log_out">Log Out</string>
+    <string name="menu_item_change_pass">Change Password</string>
+    <string name="menu_item_set_name">Set Your Name</string>
+    <string name="menu_item_close_account">Close Account</string>
+
     <string name="content_warning_activity_close_account">Are you sure you wish to close your account? All of your data, subscriptions, and notes associated with your ID will be removed from the server. There is no reversing this action.</string>
     <string name="content_change_password">Are you sure you want to change your password? This new password will take effect on your next login!</string>
-    <string name="appwidget_text">EXAMPLE</string>
+    <string name="content_new_note_saved">Your new note has been saved!</string>
+    <string name="content_failed_save_new_note">Failed to save your new note:</string>
+    <string name="content_existing_note_saved">Your note has been saved!</string>
+    <string name="content_failed_save_existing_note">Failed to save:</string>
+    <string name="content_failed_open_classroom">Failed to open classroom:</string>
     <string name="add_widget">Add widget</string>
 </resources>

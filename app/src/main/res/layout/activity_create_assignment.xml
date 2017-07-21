@@ -10,7 +10,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="@dimen/other_default_half">
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -18,7 +18,7 @@
 
             <EditText
                 android:id="@+id/edit_text_assign_title"
-                android:hint="Assignment Title"
+                android:hint="@string/edit_text_hint_assign_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
 
@@ -26,18 +26,16 @@
 
         <EditText
             android:id="@+id/edit_text_assign_content"
-            android:hint="Assignment Content"
+            android:hint="@string/edit_text_hint_assign_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:layout_editor_absoluteY="8dp"
-            tools:layout_editor_absoluteX="8dp"
             android:gravity="top"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp">
+            android:layout_marginTop="@dimen/other_default_half"
+            android:layout_marginBottom="@dimen/other_default_half">
 
             <DatePicker
                 android:id="@+id/date_picker_due"
@@ -49,7 +47,7 @@
 
         <Button
             android:id="@+id/button_save_assign_post"
-            android:text="Post"
+            android:text="@string/button_post"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

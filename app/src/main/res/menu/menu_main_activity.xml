@@ -3,21 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/menu_action_main_logout"
-        android:title="Log Out"
+        android:title="@string/menu_item_log_out"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_action_main_change_pwd"
-        android:title="Change Password"
+        android:title="@string/menu_item_change_pass"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_action_main_set_name"
-        android:title="Set Your Name"
+        android:title="@string/menu_item_set_name"
         app:showAsAction="never" />
 
     <item
         android:id="@+id/menu_action_main_close_account"
-        android:title="Close Account"
+        android:title="@string/menu_item_close_account"
         app:showAsAction="never" />
 </menu>

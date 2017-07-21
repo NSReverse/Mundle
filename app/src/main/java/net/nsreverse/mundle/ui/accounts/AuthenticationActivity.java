@@ -19,11 +19,8 @@ import net.nsreverse.mundle.R;
 import net.nsreverse.mundle.data.Analytics;
 import net.nsreverse.mundle.data.UserDefaults;
 
-import java.util.Locale;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import timber.log.Timber;
 
 /**
  * AuthenticationActivity -
