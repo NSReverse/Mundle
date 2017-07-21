@@ -19,7 +19,8 @@ import butterknife.ButterKnife;
 /**
  * ClassroomMembersAdapter -
  *
- * This class
+ * This adapter binds data for list items in ClassroomMembersActivity for listing members of a
+ * currently subscribed classroom.
  *
  * @author Robert
  * Created on 7/19/2017.
@@ -30,6 +31,15 @@ public class ClassroomMembersAdapter
     private List<ParseUser> dataSource;
     private Context context;
 
+    /**
+     * onCreateViewHolder(ViewGroup, int) -
+     *
+     * This method inflates the View to be contained within an AssignmentsViewHolder.
+     *
+     * @param parent The ViewGroup from which the Context should inflate from.
+     * @param viewType An int representing the view type. Unused.
+     * @return An MemberViewHolder to contain and adapt data to displaying in a RecyclerView.
+     */
     @Override
     public MemberViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -38,6 +48,14 @@ public class ClassroomMembersAdapter
         return new MemberViewHolder(view);
     }
 
+    /**
+     * onBindViewHolder(AssignmentsViewHolder, int) -
+     *
+     * This method binds data to a given MemberViewHolder at a given position.
+     *
+     * @param holder The AssignmentsViewHolder to contain data for displaying.
+     * @param position An int representing the position of this ViewHolder.
+     */
     @Override
     public void onBindViewHolder(MemberViewHolder holder, int position) {
         ParseUser currentUser = dataSource.get(position);
@@ -77,6 +95,13 @@ public class ClassroomMembersAdapter
         holder.usernameTextView.setText(username);
     }
 
+    /**
+     * getItemCount -
+     *
+     * This method gets the count of the current data source.
+     *
+     * @return An int representing the current size of this data source.
+     */
     @Override
     public int getItemCount() {
         if (dataSource == null) {
@@ -86,6 +111,14 @@ public class ClassroomMembersAdapter
         return dataSource.size();
     }
 
+    /**
+     * setDataSource(Context, List [->ParseObject]) -
+     *
+     * This method sets the Context and the new data source of this adapter.
+     *
+     * @param context The Context is responsible for retrieving String resources.
+     * @param dataSource A List [->ParseUser] representing the new data source.
+     */
     public void setDataSource(Context context, List<ParseUser> dataSource) {
         this.context = context;
         this.dataSource = dataSource;
@@ -93,6 +126,11 @@ public class ClassroomMembersAdapter
         notifyDataSetChanged();
     }
 
+    /**
+     * MemberViewHolder -
+     *
+     * This class allows data to be contained for displaying on a RecyclerView.
+     */
     class MemberViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.text_view_classroom_member_name) TextView nameTextView;
