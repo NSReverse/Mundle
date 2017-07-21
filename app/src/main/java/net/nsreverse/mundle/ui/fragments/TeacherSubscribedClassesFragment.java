@@ -18,6 +18,7 @@ import com.parse.ParseUser;
 
 import net.nsreverse.mundle.MundleApplication;
 import net.nsreverse.mundle.R;
+import net.nsreverse.mundle.data.UserDefaults;
 import net.nsreverse.mundle.ui.adapters.ClassroomsAdapter;
 
 import java.util.List;
@@ -68,6 +69,9 @@ public class TeacherSubscribedClassesFragment extends Fragment {
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null) {
+                    UserDefaults.WidgetInfo.setClassSubscriptionCount(context,
+                            objects.size());
+
                     adapter.setDataSource(context, objects);
                     classroomsRecyclerView.setAdapter(adapter);
                     classroomsRecyclerView.setLayoutManager(new LinearLayoutManager(context));

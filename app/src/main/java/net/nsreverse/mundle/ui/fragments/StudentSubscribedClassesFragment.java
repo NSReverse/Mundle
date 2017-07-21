@@ -16,6 +16,7 @@ import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
 import net.nsreverse.mundle.R;
+import net.nsreverse.mundle.data.UserDefaults;
 import net.nsreverse.mundle.ui.adapters.ClassroomsAdapter;
 
 import java.util.ArrayList;
@@ -77,6 +78,9 @@ public class StudentSubscribedClassesFragment extends Fragment {
                             System.out.println("Unable to add subscribed class for student.");
                         }
                     }
+
+                    UserDefaults.WidgetInfo.setClassSubscriptionCount(context,
+                            subscribedClasses.size());
 
                     adapter.setDataSource(context, subscribedClasses);
                     classroomsRecyclerView.setAdapter(adapter);

@@ -19,6 +19,7 @@ import com.parse.ParseUser;
 
 import net.nsreverse.mundle.MundleApplication;
 import net.nsreverse.mundle.R;
+import net.nsreverse.mundle.data.UserDefaults;
 import net.nsreverse.mundle.ui.adapters.NotesAdapter;
 
 import java.util.List;
@@ -73,6 +74,9 @@ public class ViewNotesActivity extends AppCompatActivity
             @Override
             public void done(List<ParseObject> objects, ParseException e) {
                 if (e == null) {
+                    UserDefaults.WidgetInfo.setNotesCount(context,
+                            objects.size());
+
                     NotesAdapter adapter = new NotesAdapter();
                     adapter.setDataSource(context, objects);
 
