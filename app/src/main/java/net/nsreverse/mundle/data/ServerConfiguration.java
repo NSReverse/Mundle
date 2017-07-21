@@ -113,6 +113,18 @@ public class ServerConfiguration {
             String encodedTitle = title;
             String encodedMessage = message;
 
+            if (username == null) {
+                username = "null";
+            }
+
+            if (title == null) {
+                title = "null";
+            }
+
+            if (message == null) {
+                message = "null";
+            }
+
             try {
                 encodedTitle = URLEncoder.encode(title, encoding);
                 encodedMessage = URLEncoder.encode(message, encoding);
