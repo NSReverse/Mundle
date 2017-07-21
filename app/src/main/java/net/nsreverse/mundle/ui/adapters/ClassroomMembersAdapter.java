@@ -17,7 +17,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Robert on 7/19/2017.
+ * ClassroomMembersAdapter -
+ *
+ * This class
+ *
+ * @author Robert
+ * Created on 7/19/2017.
  */
 public class ClassroomMembersAdapter
        extends RecyclerView.Adapter<ClassroomMembersAdapter.MemberViewHolder> {

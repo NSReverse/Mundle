@@ -43,7 +43,7 @@ public class ClassroomAssignmentsAdapter
      * This interface provides a callback method for handling actions within this adapter.
      * The class handling the callback should implement this interface.
      */
-    public interface Delegate {
+    private interface Delegate {
         void adapterItemClicked(int position, ParseObject selectedObject);
     }
 
