@@ -38,7 +38,10 @@
 
         <activity android:name=".ui.accounts.ChangePasswordActivity" />
         <activity android:name=".ui.accounts.ChangeNameActivity" />
-        <activity android:name=".ui.accounts.CloseAccountActivity"></activity>
+        <activity android:name=".ui.accounts.CloseAccountActivity" />
+        <activity android:name=".ui.notes.ViewNotesActivity" />
+        <activity android:name=".ui.notes.EditNoteActivity" />
+        <activity android:name=".ui.notes.CreateNoteActivity"></activity>
     </application>
 
 </manifest>

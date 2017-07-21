@@ -21,6 +21,7 @@ import net.nsreverse.mundle.ui.accounts.ChangeNameActivity;
 import net.nsreverse.mundle.ui.accounts.ChangePasswordActivity;
 import net.nsreverse.mundle.ui.accounts.CloseAccountActivity;
 import net.nsreverse.mundle.ui.classrooms.SubscribedClassesActivity;
+import net.nsreverse.mundle.ui.notes.ViewNotesActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         classroomsCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SubscribedClassesActivity.class);
+                Intent intent = new Intent(context, SubscribedClassesActivity.class);
                 startActivity(intent);
             }
         });
@@ -72,7 +73,8 @@ public class MainActivity extends AppCompatActivity {
         notesCardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO: Show NotesActivity here.
+                Intent intent = new Intent(context, ViewNotesActivity.class);
+                startActivity(intent);
             }
         });
     }

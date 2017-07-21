@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <RelativeLayout
+        android:id="@+id/relative_layout_item_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <TextView
+            tools:text="Reminder of Thursday's Test"
+            android:layout_marginRight="125dp"
+            android:ellipsize="end"
+            android:id="@+id/text_view_note_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            tools:text="6/25/14"
+            android:id="@+id/text_view_note_date"
+            android:layout_below="@id/text_view_note_title"
+            android:layout_marginTop="8dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <ImageView
+            android:src="@drawable/ic_chevron_right_black_24dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:contentDescription="Next page"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_below="@id/relative_layout_item_one"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/colorAccent"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"/>
+
+</RelativeLayout>
