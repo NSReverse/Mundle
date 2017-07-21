@@ -19,7 +19,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.AuthenticationActivity" />
+        <activity android:name=".ui.accounts.AuthenticationActivity" />
         <activity android:name=".ui.classrooms.SubscribedClassesActivity" />
         <activity android:name=".ui.classrooms.CreateClassActivity" />
         <activity android:name=".ui.classrooms.SubscribeStudentClassActivity" />

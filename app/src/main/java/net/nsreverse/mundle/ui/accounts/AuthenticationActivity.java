@@ -1,4 +1,4 @@
-package net.nsreverse.mundle.ui;
+package net.nsreverse.mundle.ui.accounts;
 
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
