@@ -73,5 +73,11 @@
     <string name="content_existing_note_saved">Your note has been saved!</string>
     <string name="content_failed_save_existing_note">Failed to save:</string>
     <string name="content_failed_open_classroom">Failed to open classroom:</string>
+    <string name="content_no_subscribers">Unable to find subscribers.</string>
+    <string name="content_saved_new_class">Saved your new classroom!</string>
+    <string name="content_failed_save_class">There was an issue saving your new class:</string>
+    <string name="content_sub_class_failed">Unable to subscribe to classroom:</string>
+    <string name="content_sub_class_failed_current">"Unable to subscribe to classroom: You are already in this class!"</string>
+
     <string name="add_widget">Add widget</string>
 </resources>

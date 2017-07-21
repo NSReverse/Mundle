@@ -79,15 +79,15 @@ public class CreateClassActivity extends AppCompatActivity {
                         public void done(ParseException e) {
                             if (e == null) {
                                 Toast.makeText(context,
-                                        "Saved your new classroom!",
+                                        context.getString(R.string.content_saved_new_class),
                                         Toast.LENGTH_SHORT).show();
                                 setResult(RESULT_OK);
                                 finish();
                             }
                             else {
                                 Toast.makeText(context,
-                                        "There was an issue saving your new class: " +
-                                            e.getMessage(),
+                                        context.getString(R.string.content_failed_save_class) +
+                                                " " + e.getMessage(),
                                         Toast.LENGTH_SHORT).show();
                                 setResult(RESULT_CANCELED);
                                 finish();

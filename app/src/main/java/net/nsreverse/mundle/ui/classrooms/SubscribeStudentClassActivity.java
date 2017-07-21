@@ -121,7 +121,7 @@ public class SubscribeStudentClassActivity extends AppCompatActivity
                         }
                         else {
                             Toast.makeText(context,
-                                    "Unable to subscribe to classroom: You are already in this class!",
+                                    context.getString(R.string.content_sub_class_failed_current),
                                     Toast.LENGTH_SHORT).show();
                             setResult(RESULT_CANCELED);
                             finish();
@@ -130,7 +130,8 @@ public class SubscribeStudentClassActivity extends AppCompatActivity
                 }
                 else {
                     Toast.makeText(context,
-                            "Unable to subscribe to classroom: " + e.getMessage(),
+                            context.getString(R.string.content_sub_class_failed) + " "
+                                    + e.getMessage(),
                             Toast.LENGTH_SHORT).show();
                     setResult(RESULT_CANCELED);
                     finish();

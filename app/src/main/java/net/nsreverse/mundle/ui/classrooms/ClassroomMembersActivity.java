@@ -103,8 +103,8 @@ public class ClassroomMembersActivity extends AppCompatActivity {
                     membersRecyclerView.setLayoutManager(new LinearLayoutManager(context));
                 }
                 else {
-                    Toast.makeText(context, "Unable to find subscribers.", Toast.LENGTH_SHORT)
-                            .show();
+                    Toast.makeText(context, context.getString(R.string.content_no_subscribers)
+                            , Toast.LENGTH_SHORT).show();
                 }
             }
         });
