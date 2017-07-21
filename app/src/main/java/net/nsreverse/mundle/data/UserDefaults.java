@@ -14,6 +14,7 @@ import android.content.SharedPreferences;
 public class UserDefaults {
     private static final String KEY_DEFAULT_USERNAME = "DEFAULT_USERNAME";
     private static final String KEY_DEFAULT_TEACHER = "DEFAULT_TEACHER";
+    private static final String KEY_DEFAULT_FCM_TOKEN = "DEFAULT_FCM_TOKEN";
 
     public static void setDefaultUsername(Context context, String username) {
         SharedPreferences preferences = context.getSharedPreferences("ParseMundle", Context.MODE_PRIVATE);
@@ -37,5 +38,17 @@ public class UserDefaults {
     public static boolean getDefaultTeacher(Context context) {
         SharedPreferences preferences = context.getSharedPreferences("ParseMundle", Context.MODE_PRIVATE);
         return preferences.getBoolean(KEY_DEFAULT_TEACHER, false);
+    }
+
+    public static void setDefaultFirebaseToken(Context context, String token) {
+        SharedPreferences preferences = context.getSharedPreferences("ParseMundle", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(KEY_DEFAULT_FCM_TOKEN, token);
+        editor.commit();
+    }
+
+    public static String getDefaultFirebaseToken(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences("ParseMundle", Context.MODE_PRIVATE);
+        return preferences.getString(KEY_DEFAULT_FCM_TOKEN, "");
     }
 }
