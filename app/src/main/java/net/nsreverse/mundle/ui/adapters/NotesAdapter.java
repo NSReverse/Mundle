@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.parse.ParseObject;
 
 import net.nsreverse.mundle.R;
+import net.nsreverse.mundle.model.Note;
 
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -25,6 +26,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
 
     private Delegate delegate;
     private List<ParseObject> dataSource;
+    private List<Note> loadedNotesDataSource;
 
     @Override
     public NoteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -36,29 +38,17 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
 
     @Override
     public void onBindViewHolder(NoteViewHolder holder, int position) {
-        ParseObject currentObject = dataSource.get(position);
-
-        String dateString;
-
-        try {
-            dateString = new SimpleDateFormat("dd MMMM, yyyy")
-                    .parse(currentObject.getUpdatedAt().toString()).toString();
-        }
-        catch (Exception ex) {
-            dateString = currentObject.getUpdatedAt().toString();
-        }
-
-        holder.titleTextView.setText(currentObject.getString("title"));
-        holder.subtitleTextView.setText(dateString);
+        holder.titleTextView.setText(loadedNotesDataSource.get(position).getTitle());
+        holder.subtitleTextView.setText(loadedNotesDataSource.get(position).getContent());
     }
 
     @Override
     public int getItemCount() {
-        if (dataSource == null) {
+        if (loadedNotesDataSource == null) {
             return 0;
         }
 
-        return dataSource.size();
+        return loadedNotesDataSource.size();
     }
 
     public void setDataSource(Context context, List<ParseObject> dataSource) {
@@ -67,7 +57,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
         }
 
         this.dataSource = dataSource;
+    }
 
+    public void setLoadedNotesDataSource(List<Note> notesDataSource) {
+        loadedNotesDataSource = notesDataSource;
         notifyDataSetChanged();
     }
 

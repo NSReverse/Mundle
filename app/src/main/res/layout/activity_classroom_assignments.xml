@@ -17,12 +17,14 @@
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab_new_assignment_post"
+        android:contentDescription="@string/content_desc_new_assignment"
         android:src="@drawable/ic_add_white_24dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginRight="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:layout_marginBottom="@dimen/margin_default" />
 
 </android.support.constraint.ConstraintLayout>

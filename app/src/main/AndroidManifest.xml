@@ -52,6 +52,11 @@
                 android:name="android.appwidget.provider"
                 android:resource="@xml/recent_activity_widget_info" />
         </receiver>
+
+        <provider
+            android:name=".data.notesprovider.NotesContentProvider"
+            android:authorities="net.nsreverse.mundle"
+            android:exported="false" />
     </application>
 
 </manifest>
