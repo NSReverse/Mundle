@@ -24,6 +24,8 @@ public class ServerConfigUnitTest {
                 "Test Message", "testid");
         String address2 = ServerConfiguration.X10.getSendMessageAddress("rob", "Test",
                 "Test", "testid");
+        String address3 = ServerConfiguration.X10.getSendMessageAddress(null, null,
+                "Test", "testid");
 
         assertEquals("http://reverseeffectapps.x10.mx/send.php?u=rob&t=Test+Title&" +
                 "m=Test+Message&id=testid",
@@ -32,9 +34,12 @@ public class ServerConfigUnitTest {
         assertEquals("http://reverseeffectapps.x10.mx/send.php?u=rob&t=Test&" +
                 "m=Test&id=testid", address2);
 
+        assertEquals("http://reverseeffectapps.x10.mx/send.php?u=null&t=null&" +
+                "m=Test&id=testid", address3);
 
         logMessage("Send address: " + address);
         logMessage("Send address: " + address2);
+        logMessage("Send address: " + address3);
     }
 
     @Test
