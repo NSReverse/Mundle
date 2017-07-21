@@ -15,6 +15,7 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import net.nsreverse.mundle.MundleApplication;
 import net.nsreverse.mundle.R;
 import net.nsreverse.mundle.data.UserDefaults;
 import net.nsreverse.mundle.ui.adapters.ClassroomsAdapter;
@@ -24,6 +25,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -50,6 +52,7 @@ public class StudentSubscribedClassesFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_student_subscribed_classes, container, false);
 
         ButterKnife.bind(this, root);
+        Timber.plant(new Timber.DebugTree());
 
         setDataSource();
 
@@ -75,7 +78,9 @@ public class StudentSubscribedClassesFragment extends Fragment {
                             subscribedClasses.add(classQuery.find().get(0));
                         }
                         catch (Exception ex) {
-                            System.out.println("Unable to add subscribed class for student.");
+                            if (MundleApplication.isLoggingEnabled) {
+                                Timber.d("Unable to add subscribed class for student.");
+                            }
                         }
                     }
 
