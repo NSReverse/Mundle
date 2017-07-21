@@ -8,8 +8,6 @@ import com.parse.ParseACL;
 import net.nsreverse.mundle.data.Analytics;
 import net.nsreverse.mundle.data.ServerConfiguration;
 
-import timber.log.Timber;
-
 /**
  * MundleApplication -
  *
