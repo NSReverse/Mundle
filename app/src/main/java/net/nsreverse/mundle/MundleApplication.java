@@ -25,6 +25,8 @@ public class MundleApplication extends Application {
     public static boolean startingLogout = false;
     public static boolean isShowingAuthActivity = false;
 
+    public static boolean closeAccountsEnabled = false;
+
     public static String sessionToken;
 
     /**

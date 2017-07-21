@@ -17,6 +17,9 @@ import net.nsreverse.mundle.MundleApplication;
 import net.nsreverse.mundle.R;
 import net.nsreverse.mundle.data.UserDefaults;
 import net.nsreverse.mundle.ui.accounts.AuthenticationActivity;
+import net.nsreverse.mundle.ui.accounts.ChangeNameActivity;
+import net.nsreverse.mundle.ui.accounts.ChangePasswordActivity;
+import net.nsreverse.mundle.ui.accounts.CloseAccountActivity;
 import net.nsreverse.mundle.ui.classrooms.SubscribedClassesActivity;
 
 import butterknife.BindView;
@@ -174,13 +177,16 @@ public class MainActivity extends AppCompatActivity {
             });
         }
         else if (item.getItemId() == R.id.menu_action_main_change_pwd) {
-            // TODO: Implement password change activity
+            Intent intent = new Intent(this, ChangePasswordActivity.class);
+            startActivity(intent);
         }
         else if (item.getItemId() == R.id.menu_action_main_set_name) {
-            // TODO: Implement name set activity
+            Intent intent = new Intent(this, ChangeNameActivity.class);
+            startActivity(intent);
         }
         else if (item.getItemId() == R.id.menu_action_main_close_account) {
-            // TODO: Implement account delete activity
+            Intent intent = new Intent(this, CloseAccountActivity.class);
+            startActivity(intent);
         }
 
         return super.onOptionsItemSelected(item);

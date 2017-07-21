@@ -31,6 +31,9 @@
     <string name="edit_text_hint_create_class_name">Classroom Name (e.g. Data Structures)</string>
     <string name="edit_text_hint_create_feed_title">Post Title</string>
     <string name="edit_text_hint_create_feed_content">Post Content</string>
+    <string name="edit_text_hint_set_first_name">First Name</string>
+    <string name="edit_text_hint_set_last_name">Last Name</string>
+    <string name="edit_text_hint_username">Username</string>
 
     <string name="text_view_assignment_open">(Opened)</string>
     <string name="text_view_assignment_closed">(Closed)</string>
@@ -40,4 +43,12 @@
     <string name="notify_new_assign">A new assignment has been posted in</string>
     <string name="notify_new_project">A new project has been posted in</string>
     <string name="notify_new_feed_post">A new feed message has been posted in</string>
+
+    <string name="other_change_pass">Change Password</string>
+    <string name="other_set_name">Set Your Name</string>
+    <string name="other_save_name">Save Name</string>
+    <string name="other_delete_account">Delete Account</string>
+
+    <string name="content_warning_activity_close_account">Are you sure you wish to close your account? All of your data, subscriptions, and notes associated with your ID will be removed from the server. There is no reversing this action.</string>
+    <string name="content_change_password">Are you sure you want to change your password? This new password will take effect on your next login!</string>
 </resources>
