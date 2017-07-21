@@ -41,7 +41,17 @@
         <activity android:name=".ui.accounts.CloseAccountActivity" />
         <activity android:name=".ui.notes.ViewNotesActivity" />
         <activity android:name=".ui.notes.EditNoteActivity" />
-        <activity android:name=".ui.notes.CreateNoteActivity"></activity>
+        <activity android:name=".ui.notes.CreateNoteActivity" />
+
+        <receiver android:name=".RecentActivityWidget">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/recent_activity_widget_info" />
+        </receiver>
     </application>
 
 </manifest>

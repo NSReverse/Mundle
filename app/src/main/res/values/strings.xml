@@ -54,6 +54,12 @@
     <string name="other_save_name">Save Name</string>
     <string name="other_delete_account">Delete Account</string>
 
+    <string name="label_widget_text_view_last_username">Last Username:</string>
+    <string name="label_widget_text_view_classes_subbed">Classes Subscribed: </string>
+    <string name="label_widget_text_view_notes">Notes:</string>
+
     <string name="content_warning_activity_close_account">Are you sure you wish to close your account? All of your data, subscriptions, and notes associated with your ID will be removed from the server. There is no reversing this action.</string>
     <string name="content_change_password">Are you sure you want to change your password? This new password will take effect on your next login!</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
 </resources>
