@@ -15,6 +15,11 @@
 
     <string name="content_desc_auth_background">Background</string>
     <string name="content_desc_next_page">Next page</string>
+    <string name="content_desc_new_assignment">New Assignment</string>
+    <string name="content_desc_new_feed_post">New Feed Post</string>
+    <string name="content_desc_add_classroom">Add Classroom</string>
+    <string name="content_desc_create_classroom">Create Classroom</string>
+    <string name="content_desc_create_note">Create Note</string>
 
     <string name="card_view_classrooms">Classrooms</string>
     <string name="card_view_notes">Notes</string>

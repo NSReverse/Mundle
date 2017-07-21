@@ -1,5 +1,6 @@
 package net.nsreverse.mundle.ui.notes;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import net.nsreverse.mundle.R;
+import net.nsreverse.mundle.data.notesprovider.NotesContract;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +25,8 @@ public class CreateNoteActivity extends AppCompatActivity {
     @BindView(R.id.edit_text_note_title) EditText titleEditText;
     @BindView(R.id.edit_text_note_content) EditText contentEditText;
     @BindView(R.id.button_save_note) Button saveNoteButton;
+
+    public static final String KEY_NEXT_INDEX = "next_index";
 
     private Context context;
 
@@ -44,7 +48,7 @@ public class CreateNoteActivity extends AppCompatActivity {
         saveNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String title = titleEditText.getText().toString();
+                final String title = titleEditText.getText().toString();
                 final String content = contentEditText.getText().toString();
 
                 if (!title.isEmpty() && !content.isEmpty()) {
@@ -61,6 +65,22 @@ public class CreateNoteActivity extends AppCompatActivity {
                                         context.getString(R.string.content_new_note_saved),
                                         Toast.LENGTH_SHORT).show();
                                 setResult(RESULT_OK);
+
+                                ContentValues values = new ContentValues();
+                                values.put(NotesContract.NotesEntry.COLUMN_AUTHOR_ID,
+                                        ParseUser.getCurrentUser().getObjectId());
+                                values.put(NotesContract.NotesEntry.COLUMN_AUTHOR,
+                                        ParseUser.getCurrentUser().getUsername());
+                                values.put(NotesContract.NotesEntry.COLUMN_TITLE,
+                                        title);
+                                values.put(NotesContract.NotesEntry.COLUMN_CONTENT,
+                                        content);
+
+                                getContentResolver().insert(NotesContract.NotesEntry.CONTENT_URI
+                                        .buildUpon()
+                                        .appendPath("" + getIntent().getIntExtra(KEY_NEXT_INDEX, 0))
+                                        .build(),
+                                        values);
                             }
                             else {
                                 Toast.makeText(context,
