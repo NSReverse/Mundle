@@ -1,5 +1,6 @@
 package net.nsreverse.mundle.ui.accounts;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -23,6 +24,8 @@ public class CloseAccountActivity extends AppCompatActivity {
     @BindView(R.id.edit_text_username) EditText usernameEditText;
     @BindView(R.id.button_close_account) Button closeAccountButton;
 
+    private Context context;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,8 @@ public class CloseAccountActivity extends AppCompatActivity {
         assert getSupportActionBar() != null;
         getSupportActionBar().setTitle(getString(R.string.other_delete_account));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        context = this;
 
         ButterKnife.bind(this);
 
@@ -47,7 +52,8 @@ public class CloseAccountActivity extends AppCompatActivity {
                         ParseUser.getCurrentUser().deleteInBackground(new DeleteCallback() {
                             @Override
                             public void done(ParseException e) {
-                                Toast.makeText(CloseAccountActivity.this, "Your account has been deleted.",
+                                Toast.makeText(CloseAccountActivity.this,
+                                        context.getString(R.string.content_deleted_account),
                                         Toast.LENGTH_SHORT).show();
                                 setResult(RESULT_OK);
                                 finish();
@@ -56,13 +62,14 @@ public class CloseAccountActivity extends AppCompatActivity {
                     }
                     else {
                         Toast.makeText(CloseAccountActivity.this,
-                                "Unable to delete account, account deletions disabled.",
+                                context.getString(R.string.content_delete_account_disabled),
                                 Toast.LENGTH_SHORT).show();
                     }
                 }
                 else {
-                    Toast.makeText(CloseAccountActivity.this, "Unable to delete account, username" +
-                            " mismatch.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CloseAccountActivity.this,
+                            context.getString(R.string.content_delete_account_disabled),
+                            Toast.LENGTH_SHORT).show();
                 }
             }
         });

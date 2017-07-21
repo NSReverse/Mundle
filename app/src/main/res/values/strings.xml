@@ -78,6 +78,14 @@
     <string name="content_failed_save_class">There was an issue saving your new class:</string>
     <string name="content_sub_class_failed">Unable to subscribe to classroom:</string>
     <string name="content_sub_class_failed_current">"Unable to subscribe to classroom: You are already in this class!"</string>
+    <string name="content_failed_login_is_teacher">"Failed to Login: Are you a teacher?"</string>
+    <string name="content_failed_login">Failed to Login:</string>
+    <string name="content_failed_register">Failed to Register:</string>
+    <string name="content_failed_password_empty">Please enter a new password.</string>
+    <string name="content_failed_set_new_password">Unable to set password:</string>
+    <string name="content_deleted_account">Your account has been deleted.</string>
+    <string name="content_delete_account_disabled">Unable to delete account, account deletions disabled.</string>
+    <string name="content_delete_account_check_fail">Unable to delete account, username mismatch.</string>
 
     <string name="add_widget">Add widget</string>
 </resources>

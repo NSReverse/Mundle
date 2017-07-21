@@ -106,7 +106,7 @@ public class AuthenticationActivity extends AppCompatActivity {
                                     }
                                     else {
                                         Toast.makeText(currentContext,
-                                                "Failed to Login: Are you a teacher?",
+                                                currentContext.getString(R.string.content_failed_login_is_teacher),
                                                 Toast.LENGTH_SHORT).show();
                                     }
                                 }
@@ -118,7 +118,8 @@ public class AuthenticationActivity extends AppCompatActivity {
                                     }
 
                                     Toast.makeText(currentContext,
-                                            "Failed to Login: " + errorMessage,
+                                            currentContext.getString(R.string.content_failed_login)
+                                                    + " " + errorMessage,
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
@@ -160,7 +161,8 @@ public class AuthenticationActivity extends AppCompatActivity {
                             }
 
                             Toast.makeText(currentContext,
-                                    "Failed to Register: " + message,
+                                    currentContext.getString(R.string.content_failed_register) +
+                                            " " + message,
                                     Toast.LENGTH_SHORT).show();
                         }
                     }

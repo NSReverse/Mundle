@@ -54,8 +54,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
                 if (newPassword.length() == 0) {
                     if (MundleApplication.isLoggingEnabled) {
                         Timber.d("Password is empty.");
-                        Toast.makeText(context, "Please enter a new password.", Toast.LENGTH_SHORT)
-                                .show();
+                        Toast.makeText(context,
+                                context.getString(R.string.content_failed_password_empty),
+                                Toast.LENGTH_SHORT).show();
                     }
                 }
                 else {
@@ -64,8 +65,9 @@ public class ChangePasswordActivity extends AppCompatActivity {
                         @Override
                         public void done(ParseException e) {
                             if (e != null) {
-                                Toast.makeText(context, "Unable to set password: " +
-                                                e.getMessage(),
+                                Toast.makeText(context,
+                                        context.getString(R.string.content_failed_set_new_password)
+                                                + " " + e.getMessage(),
                                         Toast.LENGTH_SHORT).show();
                             }
 
