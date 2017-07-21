@@ -19,7 +19,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by Robert on 7/16/2017.
+ * ClassroomAssignmentsAdapter -
+ *
+ * This adapter binds data for list items in ClassroomAssignmentsActivity for both assignments and
+ * project categorized items.
+ *
+ * @author Robert
+ * Created on 7/16/2017.
  */
 public class ClassroomAssignmentsAdapter
        extends RecyclerView.Adapter<ClassroomAssignmentsAdapter.AssignmentsViewHolder> {
@@ -31,10 +37,25 @@ public class ClassroomAssignmentsAdapter
     private Context context;
     private List<ParseObject> dataSource;
 
+    /**
+     * Interface Delegate -
+     *
+     * This interface provides a callback method for handling actions within this adapter.
+     * The class handling the callback should implement this interface.
+     */
     public interface Delegate {
         void adapterItemClicked(int position, ParseObject selectedObject);
     }
 
+    /**
+     * onCreateViewHolder(ViewGroup, int) -
+     *
+     * This method inflates the View to be contained within an AssignmentsViewHolder.
+     *
+     * @param parent The ViewGroup from which the Context should inflate from.
+     * @param viewType An int representing the view type. Unused.
+     * @return An AssignmentsViewHolder to contain and adapt data to displaying in a RecyclerView.
+     */
     @Override
     public AssignmentsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -43,6 +64,14 @@ public class ClassroomAssignmentsAdapter
         return new AssignmentsViewHolder(view);
     }
 
+    /**
+     * onBindViewHolder(AssignmentsViewHolder, int) -
+     *
+     * This method binds data to a given AssignmentsViewHolder at a given position.
+     *
+     * @param holder The AssignmentsViewHolder to contain data for displaying.
+     * @param position An int representing the position of this ViewHolder.
+     */
     @Override
     public void onBindViewHolder(AssignmentsViewHolder holder, int position) {
         ParseObject currentObject = dataSource.get(position);
@@ -65,6 +94,13 @@ public class ClassroomAssignmentsAdapter
         }
     }
 
+    /**
+     * getItemCount -
+     *
+     * This method gets the count of the current data source.
+     *
+     * @return An int representing the current size of this data source.
+     */
     @Override
     public int getItemCount() {
         if (dataSource == null) {
@@ -74,6 +110,15 @@ public class ClassroomAssignmentsAdapter
         return dataSource.size();
     }
 
+    /**
+     * setDataSource(Context, List [->ParseObject]) -
+     *
+     * This method sets the Context and the new data source of this adapter.
+     *
+     * @param context A Context in which to set as the Delegate, if necessary. The supplied
+     *                Context is also responsible for retrieving String resources.
+     * @param dataSource A List [->ParseObject] representing the new data source.
+     */
     public void setDataSource(Context context, List<ParseObject> dataSource) {
         if (context instanceof Delegate) {
             delegate = (Delegate)context;
@@ -83,6 +128,11 @@ public class ClassroomAssignmentsAdapter
         this.context = context;
     }
 
+    /**
+     * AssignmentsViewHolder -
+     *
+     * This class allows data to be contained for displaying on a RecyclerView.
+     */
     class AssignmentsViewHolder extends RecyclerView.ViewHolder
             implements View.OnClickListener {
 
