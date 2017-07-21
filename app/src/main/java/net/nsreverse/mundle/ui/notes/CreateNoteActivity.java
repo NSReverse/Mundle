@@ -58,13 +58,14 @@ public class CreateNoteActivity extends AppCompatActivity {
                         public void done(ParseException e) {
                             if (e == null) {
                                 Toast.makeText(context,
-                                        "Your new note has been saved!",
+                                        context.getString(R.string.content_new_note_saved),
                                         Toast.LENGTH_SHORT).show();
                                 setResult(RESULT_OK);
                             }
                             else {
                                 Toast.makeText(context,
-                                        "Failed to save your note: " + e.getMessage(),
+                                        context.getString(R.string.content_failed_save_new_note) +
+                                                " " + e.getMessage(),
                                         Toast.LENGTH_SHORT).show();
                                 setResult(RESULT_CANCELED);
                             }

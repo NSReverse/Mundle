@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -44,7 +43,7 @@ public class ViewNotesActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_notes);
         assert getSupportActionBar() != null;
-        getSupportActionBar().setTitle(ParseUser.getCurrentUser().getUsername() + "'s Notes");
+        getSupportActionBar().setTitle(getString(R.string.activity_my_notes));
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         context = this;

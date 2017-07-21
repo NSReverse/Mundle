@@ -72,12 +72,15 @@ public class EditNoteActivity extends AppCompatActivity {
                     @Override
                     public void done(ParseException e) {
                         if (e == null) {
-                            Toast.makeText(context, "Your note has been saved!",
+                            Toast.makeText(context,
+                                    context.getString(R.string.content_existing_note_saved),
                                     Toast.LENGTH_SHORT).show();
                             setResult(RESULT_OK);
                         }
                         else {
-                            Toast.makeText(context, "Failed to save: " + e.getMessage(),
+                            Toast.makeText(context,
+                                    context.getString(R.string.content_failed_save_existing_note) +
+                                        " " + e.getMessage(),
                                     Toast.LENGTH_SHORT).show();
                             setResult(RESULT_CANCELED);
                         }
