@@ -45,7 +45,7 @@ public class ServerConfiguration {
      * for handling of data and accounts.
      */
     public static class Parse {
-        private static final boolean useLocalServer = true;
+        private static final boolean useLocalServer = false;
 
         private static final String publicServerAddress = "http://75.65.191.106:1337/parse/";
         private static final String localServerAddress = "http://10.0.0.171:1337/parse/";
