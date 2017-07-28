@@ -13,7 +13,13 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 /**
- * Created by Robert on 7/21/2017.
+ * NotesContentProvider -
+ *
+ * This class defines the behavior for the Content Provider that manages the Notes that an
+ * individual makes while logged in. Meets Udacity's requirements.
+ *
+ * @author Robert
+ * Created on 7/21/2017.
  */
 public class NotesContentProvider extends ContentProvider {
     public static final int NOTES = 100;
@@ -23,6 +29,13 @@ public class NotesContentProvider extends ContentProvider {
 
     private static final UriMatcher uriMatcher = buildUriMatcher();
 
+    /**
+     * buildUriMatcher() -
+     *
+     * This method creates a UriMatcher for this ContentProvider to use when resolving URIs.
+     *
+     * @return A UriMatcher to resolve this app's URIs.
+     */
     private static UriMatcher buildUriMatcher() {
         UriMatcher newUriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
@@ -34,6 +47,13 @@ public class NotesContentProvider extends ContentProvider {
         return newUriMatcher;
     }
 
+    /**
+     * onCreate() -
+     *
+     * This method sets up the ContentProvider.
+     *
+     * @return A boolean representing success. Always true.
+     */
     @Override
     public boolean onCreate() {
         Context context = getContext();
@@ -41,6 +61,16 @@ public class NotesContentProvider extends ContentProvider {
         return true;
     }
 
+    /**
+     * insert(Uri, ContentValues) -
+     *
+     * This method inserts data into the database with the specified values.
+     *
+     * @param uri The URI indicating the path that the data should be inserted into.
+     * @param contentValues A ContentValues object containing key-value data to insert
+     *                      into the database.
+     * @return A Uri representing the path of the inserted value.
+     */
     @Nullable
     @Override
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
@@ -75,6 +105,18 @@ public class NotesContentProvider extends ContentProvider {
         return returnUri;
     }
 
+    /**
+     * query(Uri, String[], String, String[], String) -
+     *
+     * This method retrieves data from the specified URI.
+     *
+     * @param uri The URI which to retrieve the data.
+     * @param projection Unused.
+     * @param selection Unused.
+     * @param selectionArgs Unused.
+     * @param sortOrder Unused.
+     * @return A Cursor for viewing data from the database.
+     */
     @Nullable
     @Override
     public Cursor query(@NonNull Uri uri, @Nullable String[] projection,
@@ -109,6 +151,16 @@ public class NotesContentProvider extends ContentProvider {
         return returnedCursor;
     }
 
+    /**
+     * delete(Uri, String, String[]) -
+     *
+     * This method deletes data from the specified URI.
+     *
+     * @param uri The URI in which to delete data.
+     * @param s The selection parameter.
+     * @param strings The selection arguments parameter.
+     * @return An int representing the number of deleted rows.
+     */
     @Override
     public int delete(@NonNull Uri uri, @Nullable String s, @Nullable String[] strings) {
         final SQLiteDatabase db = notesDbHelper.getWritableDatabase();
@@ -134,6 +186,17 @@ public class NotesContentProvider extends ContentProvider {
         return 0;
     }
 
+    /**
+     * update(Uri, ContentValues, String, String[]) -
+     *
+     * This method updates a row in the database at the specified URI.
+     *
+     * @param uri The URI in which to update data.
+     * @param contentValues A ContentValues object containing key-value data for updating.
+     * @param whereClause A String representing the where clause.
+     * @param args A String array containing arguments for the where clause.
+     * @return An int representing the count of updated rows.
+     */
     @Override
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues,
                       @Nullable String whereClause, @Nullable String[] args) {
@@ -162,6 +225,14 @@ public class NotesContentProvider extends ContentProvider {
         return result;
     }
 
+    /**
+     * getType(Uri) -
+     *
+     * This method gets the mime type for data. Unused. Always returns null.
+     *
+     * @param uri Unused.
+     * @return Null
+     */
     @Nullable
     @Override
     public String getType(@NonNull Uri uri) {
