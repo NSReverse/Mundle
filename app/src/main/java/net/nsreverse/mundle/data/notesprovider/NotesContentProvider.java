@@ -204,7 +204,7 @@ public class NotesContentProvider extends ContentProvider {
         final SQLiteDatabase db = notesDbHelper.getWritableDatabase();
 
         int match = uriMatcher.match(uri);
-        int result = 0;
+        int result;
 
         switch (match) {
             case NOTES_WITH_ID:

@@ -29,6 +29,7 @@ public class ServerConfiguration {
      * @param context A Context to get the Connectivity Service.
      * @return A boolean representing if the test was successful.
      */
+    @SuppressWarnings("unused")
     public static boolean testConnectivity(Context context) {
         ConnectivityManager manager =
                 (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
