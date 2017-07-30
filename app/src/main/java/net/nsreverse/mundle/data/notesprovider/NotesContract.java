@@ -4,9 +4,13 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 
 /**
- * Created by Robert on 7/21/2017.
+ * NotesContract -
+ *
+ * This class defines the structure of the ContentProvider to hold notes.
+ *
+ * @author Robert
+ * Created on 7/21/2017.
  */
-
 public class NotesContract {
     public static final String AUTHORITY = "net.nsreverse.mundle";
     public static final Uri BASE_CONTENT_URI = Uri.parse("content://" + AUTHORITY);
