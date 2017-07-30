@@ -5,7 +5,12 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 /**
- * Created by Robert on 7/21/2017.
+ * NotesDbHelper -
+ *
+ * This class handles the creation and maintenance of the Notes table in the ContentProvider.
+ *
+ * @author Robert
+ * Created on 7/21/2017.
  */
 public class NotesDbHelper extends SQLiteOpenHelper {
 
@@ -21,15 +26,38 @@ public class NotesDbHelper extends SQLiteOpenHelper {
     public static final String DROP_TABLE = "DROP TABLE IF EXISTS " +
             NotesContract.NotesEntry.TABLE_NAME;
 
+    /**
+     * Constructor NotesDbHelper(Context) -
+     *
+     * This is the default constructor for creating a NotesDbHelper
+     *
+     * @param context The Context to pass to the SQLiteOpenHelper class.
+     */
     NotesDbHelper(Context context) {
         super(context, DATABASE_NAME, null, VERSION);
     }
 
+    /**
+     * onCreate(SQLiteDatabase) -
+     *
+     * This method creates the Notes table if it doesn't exist.
+     *
+     * @param db The SQLiteDatabase to perform operations on.
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
     }
 
+    /**
+     * onUpgrade(SQLiteDatabase, int, int) -
+     *
+     * This method upgrades the database. Must reimplement.
+     *
+     * @param db The SQLiteDatabase to perform operations on.
+     * @param oldVer An int representing the old version.
+     * @param newVer An int representing the new version.
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVer, int newVer) {
         db.execSQL(DROP_TABLE);
