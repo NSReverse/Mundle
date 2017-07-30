@@ -46,11 +46,6 @@ public class FCMAsyncTask extends AsyncTask<String, Void, Boolean> {
         }
     }
 
-    @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-    }
-
     /**
      * doInBackground(String...) -
      *
