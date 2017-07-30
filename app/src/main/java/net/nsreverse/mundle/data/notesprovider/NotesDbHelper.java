@@ -12,18 +12,18 @@ import android.database.sqlite.SQLiteOpenHelper;
  * @author Robert
  * Created on 7/21/2017.
  */
-public class NotesDbHelper extends SQLiteOpenHelper {
+class NotesDbHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "notes.db";
     private static final int VERSION = 1;
-    public static final String CREATE_TABLE = "CREATE TABLE " +
+    static final String CREATE_TABLE = "CREATE TABLE " +
             NotesContract.NotesEntry.TABLE_NAME + " (" +
             NotesContract.NotesEntry._ID + " INTEGER PRIMARY KEY, " +
             NotesContract.NotesEntry.COLUMN_AUTHOR_ID + " TEXT NOT NULL, " +
             NotesContract.NotesEntry.COLUMN_AUTHOR + " TEXT NOT NULL, " +
             NotesContract.NotesEntry.COLUMN_TITLE + " TEXT NOT NULL, " +
             NotesContract.NotesEntry.COLUMN_CONTENT + " TEXT NOT NULL);";
-    public static final String DROP_TABLE = "DROP TABLE IF EXISTS " +
+    static final String DROP_TABLE = "DROP TABLE IF EXISTS " +
             NotesContract.NotesEntry.TABLE_NAME;
 
     /**
