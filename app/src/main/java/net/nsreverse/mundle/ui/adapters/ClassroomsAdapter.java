@@ -15,7 +15,13 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Created by Robert on 7/11/2017.
+ * ClassroomsAdapter -
+ *
+ * This class adapts data to a RecyclerView which shows a list of Classrooms that a user is
+ * currently subscribed to.
+ *
+ * @author Robert
+ * Created on 7/11/2017.
  */
 public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.ClassroomViewHolder> {
 
@@ -23,6 +29,15 @@ public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.Cl
     private Delegate delegate;
     private List<ParseObject> dataSource;
 
+    /**
+     * onCreateViewHolder(ViewGroup, int) -
+     *
+     * This method inflates a new ClassroomViewHolder for displaying data.
+     *
+     * @param parent The parent container where this ViewHolder will be located.
+     * @param viewType Unused.
+     * @return A new ClassroomViewHolder for displaying data.
+     */
     @Override
     public ClassroomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
@@ -31,6 +46,14 @@ public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.Cl
         return new ClassroomViewHolder(view);
     }
 
+    /**
+     * onBindViewHolder(ClassroomViewHolder, int) -
+     *
+     * This method binds the data source to the ClassroomViewHolder at the specified position.
+     *
+     * @param holder A ClassroomViewHolder to set data to.
+     * @param position An int representing the position of the data source.
+     */
     @Override
     public void onBindViewHolder(ClassroomViewHolder holder, int position) {
         ParseObject currentObject = dataSource.get(position);
@@ -45,6 +68,13 @@ public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.Cl
                 .setText(instructorText);
     }
 
+    /**
+     * getItemCount() -
+     *
+     * This method gets the size of the data source.
+     *
+     * @return An int representing the size of the data source.
+     */
     @Override
     public int getItemCount() {
         if (dataSource == null) {
@@ -54,6 +84,15 @@ public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.Cl
         return dataSource.size();
     }
 
+    /**
+     * setDataSource(Context, List [-> ParseObject]) -
+     *
+     * This method sets the data source and the delegate of this adapter.
+     *
+     * @param context The Context (implementing Delegate if needed) to get resources and set
+     *                callbacks.
+     * @param dataSource A List [-> ParseObject] to use as the data source.
+     */
     public void setDataSource(Context context, List<ParseObject> dataSource) {
         if (context instanceof Delegate) {
             delegate = (Delegate)context;
@@ -65,14 +104,32 @@ public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.Cl
         notifyDataSetChanged();
     }
 
+    /**
+     * itemClicked(int) -
+     *
+     * This method uses the Delegate as a callback when an item is selected.
+     *
+     * @param position An int representing the selected position.
+     */
     private void itemClicked(int position) {
         if (delegate != null) delegate.adapterItemClicked(position, dataSource.get(position));
     }
 
+    /**
+     * Interface Delegate -
+     *
+     * This Interface allows an Object that implements it to recieve callbacks when registered
+     * as this Adapter's delegate.
+     */
     public interface Delegate {
         void adapterItemClicked(int position, ParseObject selectedObject);
     }
 
+    /**
+     * ClassroomViewHolder -
+     *
+     * This ViewHolder defines the layout of the View that will display data from the data source.
+     */
     class ClassroomViewHolder extends RecyclerView.ViewHolder
                               implements View.OnClickListener {
 
@@ -81,6 +138,13 @@ public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.Cl
         TextView classroomNameTextView;
         TextView classroomInstructorTextView;
 
+        /**
+         * Constructor ClassroomViewHolder(View) -
+         *
+         * This is the main constructor for this class to create a new ClassroomViewHolder.
+         *
+         * @param itemView A View to display data.
+         */
         ClassroomViewHolder(View itemView) {
             super(itemView);
 
@@ -91,6 +155,13 @@ public class ClassroomsAdapter extends RecyclerView.Adapter<ClassroomsAdapter.Cl
             itemView.setOnClickListener(this);
         }
 
+        /**
+         * onClick(View) -
+         *
+         * This method handles whenever an item is selected in this View.
+         *
+         * @param view The View that was selected. Unused.
+         */
         @Override
         public void onClick(View view) {
             itemClicked(getAdapterPosition());
