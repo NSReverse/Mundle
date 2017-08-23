@@ -47,12 +47,20 @@ public class ServerConfiguration {
      */
     public static class Parse {
         private static final boolean useLocalServer = false;
+        private static final boolean useHerokuServer = true; // Overrides other options
 
+        private static final String publicHerokuAddress = "https://nsserver2.herokuapp.com/parse/";
         private static final String publicServerAddress = "http://75.65.191.106:1337/parse/";
-        private static final String localServerAddress = "http://10.0.0.171:1337/parse/";
+        private static final String localServerAddress = "http://10.0.0.48:1337/parse/";
 
         public static String getServerAddress() {
-            return useLocalServer? localServerAddress : publicServerAddress;
+            String currentAddress = publicServerAddress;
+
+            if (useLocalServer) currentAddress = localServerAddress;
+
+            if (useHerokuServer) currentAddress = publicHerokuAddress;
+
+            return currentAddress;
         }
 
         /**
@@ -64,7 +72,13 @@ public class ServerConfiguration {
          * @return A String representing the application id for Parse server to work with.
          */
         public static String getApplicationId() {
-            return "capstone";
+            String appId = "capstone";
+
+            if (useHerokuServer) {
+                appId = "myAppId";
+            }
+
+            return appId;
         }
 
         /**
